@@ -18,35 +18,35 @@ public class EntityService {
 
 	// TODO: Update this function to reflect the changes to the Relationship models
 
-	
+
 	/**
 	 * Creates a molecule from the provided labels.
 	 * The Molecule consists of the entities and relationships corresponding to the labels
-	 * @param entities
+	 * //@param entities
 	 * @return Molecule
 	 */
 	//Service makes the GET requests to Music-Crux RESTful API
-	public List<Artist> getArtists_MusicCrux(){
+	public List<Artist> getArtistsSearch_MusicCrux(){
 		//Make HTTP Get-Request to "/MusicCrux/API/Artists"
 		return null;
 	}
 
-	public List<Band> getBands_MusicCrux(){
+	public List<Band> getBandsSearch_MusicCrux(){
 		//Make HTTP Get-Request to "/MusicCrux/API/Bands"
 		return null;
 	}
 
-	public List<Label> getLabels_MusicCrux(){
+	public List<Label> getLabelsSearch_MusicCrux(){
 		//Make HTTP Get-Request to "/MusicCrux/API/Labels"
 		return null;
 	}
 
-	public List<Album> getAlbums_MusicCrux(){
+	public List<Album> getAlbumsSearch_MusicCrux(){
 		//Make HTTP Get-Request to "/MusicCrux/API/Albums"
 		return null;
 	}
 
-	public List<Track> getTracks_MusicCrux(){
+	public List<Track> getTracksSearch_MusicCrux(){
 		//Make HTTP Get-Request to "/MusicCrux/API/Tracks"
 		return null;
 	}
