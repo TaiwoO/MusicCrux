@@ -8,6 +8,6 @@ public class WebApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WebApplication.class, args);
-        System.out.println("Web App Hello World");
+        System.out.println("Hello World!");
     }
 }
