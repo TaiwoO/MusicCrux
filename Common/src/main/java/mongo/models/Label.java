@@ -1,12 +1,13 @@
 package mongo.models;
 
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
+@Document
 public class Label extends Entity {
 
-    @Override
-    EntityType getEntityType() {
-        return EntityType.LABEL;
+    Label(){
+        super(EntityType.LABEL);
     }
 }
