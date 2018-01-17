@@ -26,28 +26,8 @@ public class EntityService {
 	 * @return Molecule
 	 */
 	//Service makes the GET requests to Music-Crux RESTful API
-	public List<Artist> getArtistsSearch_MusicCrux(){
+	public List<Entity> getEntitySearchResults(String name, String type, int limit){
 		//Make HTTP Get-Request to "/MusicCrux/API/Artists"
-		return null;
-	}
-
-	public List<Band> getBandsSearch_MusicCrux(){
-		//Make HTTP Get-Request to "/MusicCrux/API/Bands"
-		return null;
-	}
-
-	public List<Label> getLabelsSearch_MusicCrux(){
-		//Make HTTP Get-Request to "/MusicCrux/API/Labels"
-		return null;
-	}
-
-	public List<Album> getAlbumsSearch_MusicCrux(){
-		//Make HTTP Get-Request to "/MusicCrux/API/Albums"
-		return null;
-	}
-
-	public List<Track> getTracksSearch_MusicCrux(){
-		//Make HTTP Get-Request to "/MusicCrux/API/Tracks"
 		return null;
 	}
 
