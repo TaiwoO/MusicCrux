@@ -1,6 +1,7 @@
 package com.controllers;
 
 import com.models.Entity;
+import com.models.EntityType;
 import com.services.EntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,12 +17,17 @@ import java.util.List;
 @RequestMapping("/api")
 public class EntityController {
 
+
+
 	@Autowired
 	EntityService entityService;
 
 	@RequestMapping(value = "/entity", method = RequestMethod.GET)
 	//January 17th, 2018 Added a request parameter in EntityController for type (as in EntityType).
-	public ResponseEntity<List<Entity>> createMolecule(@RequestParam("name") String name, @RequestParam("type") String type, @RequestParam("limit") int limit){
+	public ResponseEntity<List<Entity>> createMolecule(@RequestParam("name") String name,
+													   @RequestParam("type") String type,
+													   @RequestParam("limit") int limit){
+		entityService.getEntitySearchResults(name, type, limit);
 
 		return null;
 //		List<EntityUI> entities = entityService.getEntitySearchResults(label, limit);

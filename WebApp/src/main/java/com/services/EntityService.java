@@ -1,20 +1,15 @@
 package com.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.models.*;
 import org.springframework.stereotype.Service;
-
-
-//import app.api.models.ui.EntityUI;
-//import models.Entity;
-//import repositories.EntityRepository;
-//import repositories.RelationshipRepository;
-
+import org.springframework.web.client.RestTemplate;
 
 @Service
 public class EntityService {
+
+	private RestTemplate restTemplate = new RestTemplate();
 
 	// TODO: Update this function to reflect the changes to the Relationship models
 
@@ -27,7 +22,10 @@ public class EntityService {
 	 */
 	//Service makes the GET requests to Music-Crux RESTful API
 	public List<Entity> getEntitySearchResults(String name, String type, int limit){
-		//Make HTTP Get-Request to "/MusicCrux/API/Artists"
+
+		//Type parameter will be of enum EntityType -> {'ARTIST', 'BAND', 'LABEL', 'ALBUM', 'TRACK'}
+		List<Entity> entities = restTemplate.getForObject("http://localhost:8080/MusicCrux/api/{type.toLowerCase()}/{label}/{limit}", List.class);
+		System.out.println("Request made.");
 		return null;
 	}
 
