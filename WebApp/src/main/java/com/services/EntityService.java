@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class EntityService {
 
-	private RestTemplate restTemplate = new RestTemplate();
+	private RestTemplate restTemplate;
 
 	// TODO: Update this function to reflect the changes to the Relationship models
 
@@ -24,8 +24,8 @@ public class EntityService {
 	public List<Entity> getEntitySearchResults(String name, String type, int limit){
 
 		//Type parameter will be of enum EntityType -> {'ARTIST', 'BAND', 'LABEL', 'ALBUM', 'TRACK'}
-		List<Entity> entities = restTemplate.getForObject("http://localhost:8080/MusicCrux/api/{type.toLowerCase()}/{label}/{limit}", List.class);
 		System.out.println("Request made.");
+		List<Entity> entities = restTemplate.getForObject("http://localhost:8080/MusicCrux/api/{type.toLowerCase()}/{label}/{limit}", List.class);
 		return null;
 	}
 
