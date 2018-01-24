@@ -11,7 +11,6 @@ public class Album extends Entity{
 
 
 	private String country;
-	private String title;
 	private String releaseDate;
 
 	private List<Track> tracks;
@@ -21,8 +20,7 @@ public class Album extends Entity{
 	private List<String> genres;
 	private List<String> subGenres;
 
-	@Override
-	EntityType getEntityType() {
-		return EntityType.ALBUM;
+	Album(){
+		super(EntityType.ALBUM);
 	}
 }

@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface BandRepository extends MongoRepository<Band, String> {
 	
-	public Band findByLabel(String label);
+	public Band findByName(String name);
 }

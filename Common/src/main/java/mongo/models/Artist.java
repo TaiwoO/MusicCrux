@@ -7,8 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Artist extends Entity {
 
-    @Override
-    EntityType getEntityType() {
-        return EntityType.ARTIST;
+    Artist(){
+        super(EntityType.ARTIST);
     }
 }

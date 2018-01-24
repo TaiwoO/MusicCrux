@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface ArtistRepository extends MongoRepository<Artist, String> {
 	
-	public Artist findByLabel(String label);
+	public Artist findByName(String name);
 }

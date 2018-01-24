@@ -8,11 +8,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document
-public abstract class Entity {
+public class Entity {
     @Id
     private String id;
+    private EntityType type;
     @Indexed
-    private String label; // artist name, band name, etc
+    private String name; // artist name, band name, etc
 
-    abstract EntityType getEntityType();
+    Entity(EntityType entityType) {
+        this.setType(entityType);
+    }
 }
