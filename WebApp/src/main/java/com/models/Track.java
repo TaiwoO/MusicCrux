@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class Track extends Entity {
-    Track(){
+    public Track(){
         super(EntityType.TRACK);
     }
 }

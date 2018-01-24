@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Band extends Entity{
-	Band(){
+	public Band(){
 		super(EntityType.BAND);
 	}
 }

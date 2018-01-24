@@ -3,7 +3,7 @@ package com.models;
 import lombok.Data;
 @Data
 public class Label extends Entity {
-    Label(){
+    public Label(){
         super(EntityType.LABEL);
     }
 }

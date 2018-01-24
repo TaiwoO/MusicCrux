@@ -10,9 +10,10 @@ public class Entity {
     private EntityType type;
 
     // artist name, band name, etc
-    private String label;
+    private String name;
 
-    Entity(EntityType entityType) {
+    public Entity(EntityType entityType) {
         this.setType(entityType);
     }
+
 }

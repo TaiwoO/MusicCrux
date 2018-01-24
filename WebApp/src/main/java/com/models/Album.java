@@ -16,7 +16,7 @@ public class Album extends Entity{
 	private List<String> genres;
 	private List<String> subGenres;
 
-	Album(){
+	public Album(){
 		super(EntityType.ALBUM);
 	}
 }

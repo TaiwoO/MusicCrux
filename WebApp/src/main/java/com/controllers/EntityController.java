@@ -27,9 +27,11 @@ public class EntityController {
 	public ResponseEntity<List<Entity>> createMolecule(@RequestParam("name") String name,
 													   @RequestParam("type") String type,
 													   @RequestParam("limit") int limit){
-		entityService.getEntitySearchResults(name, type, limit);
+		List<Entity> entities = entityService.getEntitySearchResults(name, type, limit);
+		HttpStatus status = entities == null ? HttpStatus.NO_CONTENT : HttpStatus.OK;
 
-		return null;
+		return new ResponseEntity<List<Entity>>(entities, status);
+
 //		List<EntityUI> entities = entityService.getEntitySearchResults(label, limit);
 //		HttpStatus status = entities == null ? HttpStatus.NO_CONTENT : HttpStatus.OK;
 //		return new ResponseEntity<List<EntityUI>>(entities, status);
