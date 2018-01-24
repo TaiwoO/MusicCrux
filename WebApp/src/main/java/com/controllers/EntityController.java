@@ -23,9 +23,9 @@ public class EntityController {
 	@RequestMapping(value = "/entity", method = RequestMethod.GET)
 	//January 17th, 2018 Added a request parameter in EntityController for type (as in EntityType).
 	public ResponseEntity<List<Entity>> createMolecule(@RequestParam("name") String name,
-													   @RequestParam("type") String type,
+													   @RequestParam("type") List<String> types,
 													   @RequestParam("limit") int limit){
-		List<Entity> entities = entityService.getEntitySearchResults(name, type, limit);
+		List<Entity> entities = entityService.getEntitySearchResults(name, types, limit);
 		HttpStatus status = entities == null ? HttpStatus.NO_CONTENT : HttpStatus.OK;
 
 		return new ResponseEntity<List<Entity>>(entities, status);
