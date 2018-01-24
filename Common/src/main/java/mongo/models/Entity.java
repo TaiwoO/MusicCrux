@@ -13,7 +13,7 @@ public class Entity {
     private String id;
     private EntityType type;
     @Indexed
-    private String label; // artist name, band name, etc
+    private String name; // artist name, band name, etc
 
     Entity(EntityType entityType) {
         this.setType(entityType);
