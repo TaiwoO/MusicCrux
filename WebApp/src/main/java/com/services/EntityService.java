@@ -25,8 +25,10 @@ public class EntityService {
 
 	//Service makes the GET requests to Music-Crux RESTful API
 	public List<Entity> getEntitySearchResults(String name, String type, int limit){
-		//Type parameter will be of enum EntityType -> {'ARTIST', 'BAND', 'LABEL', 'ALBUM', 'TRACK'}
-		//List<Entity> entities = restTemplate.getForObject("http://localhost:8080/MusicCrux/api/{type.toLowerCase()}/{label}/{limit}", List.class);
+
+		/* UNCOMMENT THIS BLOCK WHEN the MusicCrux RESTful Service is up and running. */
+//		Type parameter will be of enum EntityType -> {'ARTIST', 'BAND', 'LABEL', 'ALBUM', 'TRACK'}
+//		List<Entity> entities = restTemplate.getForObject("http://localhost:8080/MusicCrux/api/{type.toLowerCase()}/{label}/{limit}", List.class);
 
 		List<Entity> entities = new ArrayList<>();
 		System.out.println("Request made.");

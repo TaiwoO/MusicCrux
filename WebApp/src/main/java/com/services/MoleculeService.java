@@ -1,17 +1,27 @@
 package com.services;
 
 import com.models.Entity;
+import com.models.Relationship;
 import com.models.Molecule;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.HashSet;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashSet;
-
 @Service
 public class MoleculeService {
+//
+//    @Autowired
+//    EntityRepository entityRepository;
+//
+//    @Autowired
+//    RelationshipRepository relationshipRepository;
 
-    private RestTemplate restTemplate;
+    RestTemplate restTemplate = new RestTemplate();
     /**
      * Returns a molecule for the specified @entityId .
      *
@@ -19,20 +29,19 @@ public class MoleculeService {
      * @param depth    : The depth to search
      * @return : MoleculeUI
      */
-//    public MoleculeUI createMoleculeFor(String entityId, int depth) {
+//    public Molecule createMoleculeFor(String entityId, int depth) {
 //
 //        HashSet<String> visited = new HashSet<>();
 //        Molecule molecule = new Molecule();
 //
 //        if (depth <= 0) {
-//            Entity entity = restTemplate.getForOjbect("http://localhost:8080/MusicCrux/api/")
-//            //Entity entity = entityRepository.findOne(entityId);
+//            //Entity entity = entityRepository.findOne(entityId); /* REPLACED WITH HTTP REQUEST */
+//            Entity entity = restTemplate.getForObject("https://localhost:8080/MusicCrux/api/{type}/{id}", Entity.class);
 //            molecule.addEntity(entity);
 //        } else {
 //            populateMolecule(entityId, depth, visited, molecule);
 //        }
-//
-//        return MoleculeUI.dbModelToUiModel(molecule);
+//        return (molecule);
 //    }
 //
 //    /**
@@ -52,8 +61,10 @@ public class MoleculeService {
 //
 //        depth -= 1;
 //
-//        Entity entity = entityRepository.findOne(entityId);
-//        List<Relationship> relationships = relationshipRepository.findByEntity(entityId);
+//        //Entity entity = entityRepository.findOne(entityId); /* REPLACED WITH HTTP REQUEST */
+//        Entity entity = restTemplate.getForObject("https://localhost:8080/MusicCrux/api/{type}/{id", Entity.class);
+//        //List<Relationship> relationships = relationshipRepository.findByEntity(entityId); /* REPLACED WITH HTTP REQUEST */
+//        List<Relationship> relationships = restTemplate.getForObject("https://localhost:8080/MusicCrux/api/Relationship/{id}", Relationship.class);
 //
 //        molecule.addEntity(entity);
 //        molecule.addRelationships(relationships);
@@ -61,23 +72,24 @@ public class MoleculeService {
 //
 //        for (Relationship relationship : relationships) {
 //
-//            if (!visited.contains(relationship.getEntity1().getId())) {
+//            if (!visited.contains(relationship.getEntityA().getId())) {
 //                if (depth == 0) { // Once the end has been reached, the connected entity should be added to the
 //                    // molecule but it shouldn't recursively.
-//                    molecule.addEntity(relationship.getEntity1());
-//                    visited.add(relationship.getEntity1().getId());
+//                    molecule.addEntity(relationship.getEntityA());
+//                    visited.add(relationship.getEntityA().getId());
 //                } else {
-//                    populateMolecule(relationship.getEntity1().getId(), depth, visited, molecule);
+//                    populateMolecule(relationship.getEntityA().getId(), depth, visited, molecule);
 //                }
 //            }
-//            if (!visited.contains(relationship.getEntity2().getId())) {
+//            if (!visited.contains(relationship.getEntityB().getId())) {
 //                if (depth == 0) {
-//                    molecule.addEntity(relationship.getEntity2());
-//                    visited.add(relationship.getEntity2().getId());
+//                    molecule.addEntity(relationship.getEntityB());
+//                    visited.add(relationship.getEntityB().getId());
 //                } else {
-//                    populateMolecule(relationship.getEntity2().getId(), depth, visited, molecule);
+//                    populateMolecule(relationship.getEntityB().getId(), depth, visited, molecule);
 //                }
 //            }
 //        }
 //    }
+
 }

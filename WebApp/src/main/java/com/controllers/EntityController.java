@@ -17,8 +17,6 @@ import java.util.List;
 @RequestMapping("/api")
 public class EntityController {
 
-
-
 	@Autowired
 	EntityService entityService;
 
