@@ -11,7 +11,6 @@ public class Album extends Entity{
 
 
 	private String country;
-	private String title;
 	private String releaseDate;
 
 	private List<Track> tracks;
