@@ -51,7 +51,7 @@ public class CreateLabelDB implements CommandLineRunner{
                 JSONObject LabelJson = xmlJsonObj.getJSONObject("label");
 
                 Label label = mapper.readValue(LabelJson.toString(), Label.class);
-                System.out.println(label);
+                //System.out.println(label);
                 //If the contactinfo xml tag is not empty, extract the  location via OpenNLP
                 if(label.getContactinfo() != null) {
                     String XMLContactTag = label.getContactinfo();
@@ -62,12 +62,11 @@ public class CreateLabelDB implements CommandLineRunner{
                             label.getLocations().add(tokens[s.getStart()]);
                         }
                     }
-                    System.out.println("Locations: " + label.getLocations() + " for label: " + label.getName());
+                    //System.out.println("Locations: " + label.getLocations() + " for label: " + label.getName());
                 }
                 //HTTP:POST Request goes here
                 DiscogsPostReq labelPost = new DiscogsPostReq();
                 labelPost.postLabelEntity(label);
-
             }
         } catch(Exception e) { e.printStackTrace(); }
     }
