@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Band extends Entity{
 
-	Band(){
+	public Band(){
 		super(EntityType.BAND);
 	}
 }
