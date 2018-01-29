@@ -21,7 +21,7 @@ public class MoleculeService {
 //    @Autowired
 //    RelationshipRepository relationshipRepository;
 
-    RestTemplate restTemplate = new RestTemplate();
+    private RestTemplate restTemplate = new RestTemplate();
     /**
      * Returns a molecule for the specified @entityId .
      *
@@ -29,6 +29,7 @@ public class MoleculeService {
      * @param depth    : The depth to search
      * @return : MoleculeUI
      */
+    public Molecule createMolecule()
 //    public Molecule createMoleculeFor(String entityId, int depth) {
 //
 //        HashSet<String> visited = new HashSet<>();
