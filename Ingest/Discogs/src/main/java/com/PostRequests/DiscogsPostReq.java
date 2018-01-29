@@ -2,6 +2,7 @@ package com.PostRequests;
 
 import com.Models.Artist;
 import com.Models.Band;
+import com.Models.Label;
 import lombok.Data;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
@@ -78,5 +79,32 @@ public class DiscogsPostReq {
         }
         return status;
     }
+
+    public HttpStatus postLabelEntity(Label label){
+        //Sets up the HTTP headers and content for the RestTemplate and the URI
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Label> labelEntity = new HttpEntity(label, headers);
+        URI = "http://localhost:8080/Label";
+        HttpStatus status = HttpStatus.NO_CONTENT;
+
+        try{
+            ResponseEntity<Label> entityOut = restTemplate.postForEntity(URI, labelEntity, Label.class);
+            status = entityOut.getStatusCode();
+        } catch(HttpClientErrorException e){
+            System.out.println("Error with client request.");
+            System.out.println(e.getMostSpecificCause());
+            System.out.println(e.getResponseBodyAsString());
+            e.printStackTrace();
+        } catch (HttpServerErrorException e){
+            System.out.println("Error with server.");
+            System.out.println(e.getMostSpecificCause());
+            System.out.println(e.getResponseBodyAsString());
+            e.printStackTrace();
+        }
+        return status;
+    }
+
+
 
 }
