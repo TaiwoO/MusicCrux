@@ -3,6 +3,7 @@ package com.Services;
 import mongo.models.Album;
 import mongo.repositories.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,8 +29,7 @@ public class AlbumService {
      * @return Albums matching the @name
      */
     public List<Album> getAlbumsByName(String name, int limit) {
-
-        return null;
+        return albumRepository.findByNameContaining(name, new PageRequest(0, limit));
     }
 
     /**
@@ -38,7 +38,8 @@ public class AlbumService {
      * @return albums matching the @genres
      */
     public List<Album> getAlbumsByGenres(List<String> genres, int limit) {
-        return null;
+
+        return albumRepository.findByGenresContaining(genres, new PageRequest(0, limit));
     }
 
     /**
@@ -48,7 +49,7 @@ public class AlbumService {
      * @return The Album that was added
      */
     public Album add(Album album) {
-        return null;
+        return albumRepository.save(album);
     }
 
     /**
@@ -57,7 +58,9 @@ public class AlbumService {
      * @param id id of the Album
      * @return The Album that was updated
      */
-    public Album update(String id) {
-        return null;
+    public Album update(String id, Album albumUpdates) {
+        Album album = this.getAlbum(id);
+        album = albumUpdates;
+        return albumRepository.save(album);
     }
 }

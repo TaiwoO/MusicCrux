@@ -1,33 +1,39 @@
 package com.Controllers;
 
+import com.Services.BandService;
 import mongo.models.Band;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
 @RestController
-@RequestMapping ("/band")
+@RequestMapping("/band")
 public class BandController {
 
-    @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public Band getBand(@RequestParam("id") String id) {
-        return null;
+    @Autowired
+    BandService bandService;
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Band getBand(@PathVariable("id") String id) {
+
+        return bandService.getBand(id);
     }
 
-    @RequestMapping(method = RequestMethod.GET, params = {"name","limit"})
-    public Collection<Band> getBandByName(@RequestParam("name") String name, @RequestParam("limit") int limit) {
-        return null;
+    @RequestMapping(method = RequestMethod.GET, params = {"name", "limit"})
+    public Collection<Band> getBandsByName(@RequestParam("name") String name, @RequestParam("limit") int limit) {
+        return bandService.getBandsByName(name, limit);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Band> add(@RequestBody Band band) {
-        return null;
+    public Band add(@RequestBody Band band) {
+        return bandService.add(band);
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
-    public ResponseEntity<Band> update(@RequestParam("id") String id) {
-        return null;
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public Band update(@PathVariable("id") String id, @RequestBody Band band) {
+        return bandService.update(id, band);
     }
 
 }

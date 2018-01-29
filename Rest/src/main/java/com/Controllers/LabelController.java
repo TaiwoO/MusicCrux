@@ -1,37 +1,42 @@
 package com.Controllers;
 
+import com.Services.LabelService;
 import mongo.models.Label;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
 @RestController
-@RequestMapping ("/label")
+@RequestMapping("/label")
 public class LabelController {
 
-    @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public Label getLabel(@RequestParam("id") String id) {
-        return null;
+    @Autowired
+    LabelService labelService;
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Label getLabel(@PathVariable("id") String id) {
+        return labelService.getLabel(id);
     }
 
-    @RequestMapping(method = RequestMethod.GET, params = {"name","limit"})
+    @RequestMapping(method = RequestMethod.GET, params = {"name", "limit"})
     public Collection<Label> getLabelsByName(@RequestParam("name") String name, @RequestParam("limit") int limit) {
-        return null;
+        return labelService.getLabelsByName(name, limit);
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Label> getLabelsByLocation(@RequestParam("location") String location, @RequestParam("limit") int limit) {
-        return null;
+        return labelService.getLabelsByLocation(location, limit);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Label> add(@RequestBody Label label) {
-        return null;
+    public Label add(@RequestBody Label label) {
+        return labelService.add(label);
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
-    public ResponseEntity<Label> update(@RequestParam("id") String id) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public Label update(@PathVariable("id") String id, @RequestBody Label label) {
         return null;
     }
 }

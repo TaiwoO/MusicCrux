@@ -1,6 +1,9 @@
 package com.Services;
 
 import mongo.models.Band;
+import mongo.repositories.BandRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,40 +12,43 @@ import java.util.List;
 public class BandService {
 
 
+    @Autowired
+    BandRepository bandRepository;
+
     /**
-     *
      * @param id id of the Band
      * @return The Band matching the id
      */
-    public Band getBand( String id) {
-        return null;
+    public Band getBand(String id) {
+        return bandRepository.findOne(id);
     }
 
     /**
-     *
-     * @param name Search string
+     * @param name  Search string
      * @param limit max number of bands to return
      * @return bands matching the @name
      */
-    public List<Band> getBandByName(String name, int limit) {
-        return null;
+    public List<Band> getBandsByName(String name, int limit) {
+
+        return bandRepository.findByNameContaining(name, new PageRequest(0, limit));
     }
 
     /**
-     *
      * @param band Band to add in the database
      * @return The Band that was added
      */
     public Band add(Band band) {
-        return null;
+
+        return bandRepository.save(band);
     }
 
     /**
-     *
      * @param id id of the Band
      * @return The Band that was updated
      */
-    public Band update( String id) {
-        return null;
+    public Band update(String id, Band bandUpdates) {
+        Band band = this.getBand(id);
+        band = bandUpdates;
+        return bandRepository.save(band);
     }
 }
