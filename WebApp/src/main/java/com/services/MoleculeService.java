@@ -25,11 +25,13 @@ public class MoleculeService {
     /**
      * Returns a molecule for the specified @entityId .
      *
-     * @param entityId : id of the current entity being searched
-     * @param depth    : The depth to search
+    // * @param entityId : id of the current entity being searched
+    // * @param depth    : The depth to search
      * @return : MoleculeUI
      */
-    public Molecule createMolecule()
+    public Molecule createMolecule(String entityId, int depth){
+       return null;
+    }
 //    public Molecule createMoleculeFor(String entityId, int depth) {
 //
 //        HashSet<String> visited = new HashSet<>();
