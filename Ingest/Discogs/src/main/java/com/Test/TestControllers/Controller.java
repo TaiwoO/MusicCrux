@@ -2,6 +2,7 @@ package com.Test.TestControllers;
 import com.Models.Album;
 import com.Models.Artist;
 import com.Models.Band;
+import com.Models.Label;
 import com.Test.TestServices.EntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,11 +30,19 @@ public class Controller {
         return new ResponseEntity<Band>(band, status);
     }
 
+
     @RequestMapping(value = "/Album", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public ResponseEntity<Album> addAlbum(@RequestBody Album album){
         HttpStatus status = album == null ? HttpStatus.BAD_REQUEST : HttpStatus.ACCEPTED;
         service.entity(album);
         return new ResponseEntity<Album>(album, status);
+    }
+
+  @RequestMapping(value = "/Label", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    public ResponseEntity<Label> addArtist(@RequestBody Label label) {
+        HttpStatus status = label == null ? HttpStatus.BAD_REQUEST : HttpStatus.ACCEPTED;
+        service.entity(label);
+        return new ResponseEntity<Label>(label, status);
     }
 
 }

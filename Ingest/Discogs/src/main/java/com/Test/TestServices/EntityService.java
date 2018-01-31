@@ -3,6 +3,7 @@ package com.Test.TestServices;
 import com.Models.Album;
 import com.Models.Artist;
 import com.Models.Band;
+import com.Models.Label;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +23,18 @@ public class EntityService {
         return null;
     }
 
+
     public ResponseEntity<Album> entity(Album album){
         System.out.println("Album:");
         System.out.println(album.toString());
         return null;
     }
+
+
+    public ResponseEntity<Label> entity(Label label){
+        System.out.println("Label:");
+        System.out.println(label.toString());
+        return null;
+    }
 }
+

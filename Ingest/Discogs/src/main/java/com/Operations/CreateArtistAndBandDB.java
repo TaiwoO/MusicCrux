@@ -14,8 +14,13 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 //C:\Users\eclouhi\Desktop\artist.xml
 
+
 @Component
-@Order(value =2)
+//@Order(value =2)
+//=======
+//@Component
+//@Order(value =1)
+
 public class CreateArtistAndBandDB implements CommandLineRunner{
 
     @Override

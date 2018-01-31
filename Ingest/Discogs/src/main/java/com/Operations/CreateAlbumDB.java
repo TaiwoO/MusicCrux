@@ -14,7 +14,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
-@Order(value = 1)
+//@Order(value = 1)
 public class CreateAlbumDB implements CommandLineRunner {
 
 
@@ -24,7 +24,7 @@ public class CreateAlbumDB implements CommandLineRunner {
             ObjectMapper mapper = new ObjectMapper();
             mapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
 
-            String releaseXmlFileString = arg0[0].toString();
+            String releaseXmlFileString = arg0[3].toString();
             XmlFileReader xmlFileReader = new XmlFileReader(releaseXmlFileString);
 
             while (xmlFileReader.hasNext()) {
