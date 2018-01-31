@@ -12,10 +12,10 @@ import org.json.XML;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
+//C:\Users\eclouhi\Desktop\artist.xml
 
 @Component
-@Order(value =1)
+@Order(value =2)
 public class CreateArtistAndBandDB implements CommandLineRunner{
 
     @Override

@@ -1,5 +1,6 @@
 package com.Test.TestServices;
 
+import com.Models.Album;
 import com.Models.Artist;
 import com.Models.Band;
 import org.springframework.http.ResponseEntity;
@@ -21,4 +22,9 @@ public class EntityService {
         return null;
     }
 
+    public ResponseEntity<Album> entity(Album album){
+        System.out.println("Album:");
+        System.out.println(album.toString());
+        return null;
+    }
 }

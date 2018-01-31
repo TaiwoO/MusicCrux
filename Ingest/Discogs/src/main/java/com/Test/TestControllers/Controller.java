@@ -1,4 +1,5 @@
 package com.Test.TestControllers;
+import com.Models.Album;
 import com.Models.Artist;
 import com.Models.Band;
 import com.Test.TestServices.EntityService;
@@ -22,10 +23,17 @@ public class Controller {
     }
 
     @RequestMapping(value = "/Band", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
-    public ResponseEntity<Band> addArtist(@RequestBody Band band){
+    public ResponseEntity<Band> addBand(@RequestBody Band band){
         HttpStatus status = band == null ? HttpStatus.BAD_REQUEST : HttpStatus.ACCEPTED;
         service.entity(band);
         return new ResponseEntity<Band>(band, status);
+    }
+
+    @RequestMapping(value = "/Album", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    public ResponseEntity<Album> addAlbum(@RequestBody Album album){
+        HttpStatus status = album == null ? HttpStatus.BAD_REQUEST : HttpStatus.ACCEPTED;
+        service.entity(album);
+        return new ResponseEntity<Album>(album, status);
     }
 
 }

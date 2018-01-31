@@ -1,5 +1,6 @@
 package com.PostRequests;
 
+import com.Models.Album;
 import com.Models.Artist;
 import com.Models.Band;
 import lombok.Data;
@@ -59,6 +60,37 @@ public class DiscogsPostReq {
 
         try {
             ResponseEntity<Band> entityOut = restTemplate.postForEntity(URI, bandEntity, Band.class);
+            if(entityOut.getBody() != null){
+                status = entityOut.getStatusCode();
+            }else{
+                status = entityOut.getStatusCode();
+            }
+
+        } catch (HttpClientErrorException e) {
+            System.out.println("Error with client request.");
+            System.out.println(e.getMostSpecificCause());
+            System.out.println(e.getResponseBodyAsString());
+            e.printStackTrace();
+        } catch (HttpServerErrorException e) {
+            System.out.println("Error with server.");
+            System.out.println(e.getMostSpecificCause());
+            System.out.println(e.getResponseBodyAsString());
+            e.printStackTrace();
+        }
+        return status;
+    }
+
+    public HttpStatus postAlbumEntity(Album album) {
+
+        //Sets up the HTTP headers and content for the RestTemplate and the URI
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Album> albumEntity = new HttpEntity(album, headers);
+        URI = "http://localhost:8080/Album";
+        HttpStatus status = HttpStatus.NO_CONTENT;
+
+        try {
+            ResponseEntity<Album> entityOut = restTemplate.postForEntity(URI, albumEntity, Album.class);
             if(entityOut.getBody() != null){
                 status = entityOut.getStatusCode();
             }else{
