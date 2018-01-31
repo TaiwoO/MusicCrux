@@ -1,12 +1,12 @@
 package com.db.mongo.models;
 
 import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
 @Data
-@Document
+@EqualsAndHashCode(callSuper=false)
 public class Album extends Entity{
 
 
