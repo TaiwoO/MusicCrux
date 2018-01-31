@@ -1,14 +1,11 @@
-package mongo.repositories;
+package com.db.mongo.repositories;
 
 import java.util.List;
 
-import mongo.models.Relationship;
-import mongo.models.RelationshipType;
+import com.db.mongo.models.Relationship;
+import com.db.mongo.models.RelationshipType;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
-import org.springframework.data.domain.Pageable;
-
-
 
 
 public interface RelationshipRepository extends MongoRepository<Relationship, String>{

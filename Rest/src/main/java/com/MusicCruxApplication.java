@@ -4,10 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import mongo.repositories.*;
-
 @SpringBootApplication
-@EnableMongoRepositories(basePackages="mongo.repositories")
+@EnableMongoRepositories(basePackages= "com.db.mongo.repositories")
 
 public class MusicCruxApplication {
 

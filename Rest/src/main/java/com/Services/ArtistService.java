@@ -1,7 +1,7 @@
 package com.Services;
 
-import mongo.models.Artist;
-import mongo.repositories.ArtistRepository;
+import com.db.mongo.models.Artist;
+import com.db.mongo.repositories.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.Controllers;
 
 import com.Services.AlbumService;
-import mongo.models.Album;
+import com.db.mongo.models.Album;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

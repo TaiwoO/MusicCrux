@@ -1,4 +1,4 @@
-package mongo.models;
+package com.db.mongo.models;
 
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;

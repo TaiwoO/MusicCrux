@@ -1,7 +1,7 @@
 package com.Controllers;
 
 import com.Services.ArtistService;
-import mongo.models.Artist;
+import com.db.mongo.models.Artist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
 package com.Services;
 
-import mongo.models.Label;
-import mongo.repositories.LabelRepository;
+import com.db.mongo.models.Label;
+import com.db.mongo.repositories.LabelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

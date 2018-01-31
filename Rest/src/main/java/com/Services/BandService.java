@@ -1,7 +1,7 @@
 package com.Services;
 
-import mongo.models.Band;
-import mongo.repositories.BandRepository;
+import com.db.mongo.models.Band;
+import com.db.mongo.repositories.BandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

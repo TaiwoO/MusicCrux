@@ -1,4 +1,4 @@
-package mongo.models;
+package com.db.mongo.models;
 
 public enum EntityType {
 	ALBUM,

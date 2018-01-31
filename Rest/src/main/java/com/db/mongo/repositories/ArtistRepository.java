@@ -1,6 +1,6 @@
-package mongo.repositories;
+package com.db.mongo.repositories;
 
-import mongo.models.Artist;
+import com.db.mongo.models.Artist;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

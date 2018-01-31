@@ -1,6 +1,6 @@
-package mongo.repositories;
+package com.db.mongo.repositories;
 
-import mongo.models.Label;
+import com.db.mongo.models.Label;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

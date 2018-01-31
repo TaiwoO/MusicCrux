@@ -1,7 +1,7 @@
 package com.Services;
 
-import mongo.models.Relationship;
-import mongo.repositories.RelationshipRepository;
+import com.db.mongo.models.Relationship;
+import com.db.mongo.repositories.RelationshipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
