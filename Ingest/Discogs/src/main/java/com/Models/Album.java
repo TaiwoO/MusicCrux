@@ -1,124 +1,156 @@
 package com.Models;
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import java.util.ArrayList;
 import java.util.List;
 
 //GSON nested JSON to Java Objects
 @Data
 public class Album {
 
+    @SerializedName("country")
     @Expose
-    String country;
+    private String country;
+
     @SerializedName("tracklist")
     @Expose
-    TrackList trackList;
-//    @Expose
-//    Identifiers identifiers;
+    private Tracklist tracklist;
+
+    @SerializedName("identifiers")
+    @Expose
+    private Identifiers identifiers;
+
     @SerializedName("extraArtists")
     @Expose
-    ExtraArtists extraArtists;
-    @Expose
-    String title;
-//    @Expose
-//    Companies companies;
-    @Expose
-    Artists artist;
-//    @Expose
-//    Genre genres;
-    @Expose
-    Styles style;
+    private Extraartists extraartists;
 
+    @SerializedName("title")
+    @Expose
+    private String title;
+
+    @SerializedName("companies")
+    @Expose
+    private Companies companies;
+
+    @SerializedName("artists")
+    @Expose
+    private Artists artist;
+
+    @SerializedName("genres")
+    @Expose
+    private Genres genres;
+
+    @SerializedName("styles")
+    @Expose
+    private Styles style;
 
     @Data
-    public static class TrackList {
+    public static class Tracklist {
+        @SerializedName("track")
         @Expose
-        List<Track> track = new ArrayList<Track>();
+        private List<Track> track = null;
+    }
+
+    @Data
+    public class Track {
+        @SerializedName("duration")
+        @Expose
+        private String duration;
+        @SerializedName("position")
+        @Expose
+        private String position;
+        @SerializedName("title")
+        @Expose
+        private String title;
     }
 
     @Data
     public static class Identifiers {
+        @SerializedName("identifier")
         @Expose
-        List<Identifier> identifier = new ArrayList<Identifier>();
+        private List<Identifier> identifier = null;
     }
 
     @Data
     public static class Identifier {
+        @SerializedName("description")
         @Expose
-        String description;
+        private String description;
+        @SerializedName("type")
         @Expose
-        String type;
+        private String type;
+        @SerializedName("value")
         @Expose
-        String value;
+        private String value;
     }
 
     @Data
-    public static class ExtraArtists {
+    public static class Extraartists  {
+        @SerializedName("artist")
         @Expose
-        List<Artist> artist = new ArrayList<Artist>();
+        private Artist artist;
     }
 
     @Data
     public static class Artist {
+        @SerializedName("role")
         @Expose
-        String role;
+        private String role;
+        @SerializedName("name")
         @Expose
-        String name;
+        private String name;
+        @SerializedName("tracks")
         @Expose
-        String tracks;
+        private String tracks;
     }
 
     @Data
     public static class Artists {
+        @SerializedName("artists")
         @Expose
-        Artist artist;
+        private Artist artist;
     }
 
     @Data
     public static class Genres {
+        @SerializedName("genre")
         @Expose
-        List<Genre> genre = new ArrayList<Genre>();
-    }
+        private List<String> genre = null;
 
-    @Data
-    public static class Genre {
-        @Expose
-        String genre;
     }
 
     @Data
     public static class Styles {
+        @SerializedName("style")
         @Expose
-        List<Style> style = new ArrayList<Style>();
-    }
+        private List<String> style = null;
 
-    @Data
-    public static class Style {
-        @Expose
-        String style;
     }
 
     @Data
     public static class Companies {
+        @SerializedName("company")
         @Expose
-        List<Label> company = new ArrayList<Label>();
+        List<Company> company;
     }
 
 
     @Data
-    public static class Label {
+    public static class Company {
+        @SerializedName("id")
         @Expose
         private long id;
+        @SerializedName("name")
         @Expose
         private String name;
+        @SerializedName("catno")
         @Expose
         private String catno;
+        @SerializedName("entity_type")
         @Expose
         private String entity_type_name;
-
-
     }
 
 }
